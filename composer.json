@@ -15,7 +15,7 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.1",
-        "payum/core": "^1.5",
+        "payum/core": "^1.4",
         "toropay/payapi-php": "1.0.x-dev"
     },
     "require-dev": {
