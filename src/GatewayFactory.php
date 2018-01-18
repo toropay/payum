@@ -29,15 +29,15 @@ class GatewayFactory extends PayumGatewayFactory
     protected function populateConfig(ArrayObject $config)
     {
         $config->defaults([
-            'payum.factory_name' => 'toropay',
-            'payum.factory_title' => 'ToroPay',
+            'payum.factory_name' => ToroPay::SERVICE_NAME,
+            'payum.factory_title' => ucfirst(ToroPay::SERVICE_NAME),
             'payum.action.status' => new StatusAction(),
             'payum.action.authorize' => new AuthorizeAction(),
             'payum.action.capture' => new CaptureAction(),
             'payum.action.convert_payment' => new ConvertPaymentAction(),
         ]);
 
-        if (!$config['payum.api']) {
+        if (!$config['payum.api.toropay-api']) {
             $config['payum.api'] = function (ArrayObject $config) {
                 return new ToroPay([
                     'clientId' => $config['toropay_client_id'],
