@@ -44,7 +44,7 @@ class GatewayFactory extends PayumGatewayFactory
                     'clientSecret' => $config['toropay_client_secret'],
                     'redirectUri' => $config['toropay_redirect_uri'],
                     'ownerProvider' => $config['toropay_owner_provider'],
-                    'sandbox' => !$config['toropay_sandbox'],
+                    'sandbox' => $config['toropay_sandbox'],
                 ]);
             };
         }
