@@ -1,0 +1,40 @@
+{
+    "name": "toropay/payum",
+    "type": "library",
+    "description": "Toro Pay for Payum.",
+    "homepage": "https://github.com/toropay/payum",
+    "keywords": ["payment", "toropay", "payum"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ishmael Doss",
+            "email": "nukboon@gmail.com",
+            "homepage": "https://github.com/liverbool"
+        }
+    ],
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.1",
+        "toropay/payapi-php": "1.0.x-dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Toro\\Payum\\": "src/",
+            "Tests\\Toro\\Payum\\": "tests/"
+        }
+    },
+    "autoload-dev": {
+    },
+    "config": {
+        "bin-dir": "bin",
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
