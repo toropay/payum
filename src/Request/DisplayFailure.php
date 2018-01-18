@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Dos\Payum\ToroPay\Request;
+namespace Dos\Payum\Request;
 
 use Payum\Core\Request\Generic;
 

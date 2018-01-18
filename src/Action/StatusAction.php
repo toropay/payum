@@ -11,9 +11,9 @@
 
 declare(strict_types=1);
 
-namespace Dos\Payum\ToroPay\Action;
+namespace Dos\Payum\Action;
 
-use Dos\Payum\ToroPay\Request\DisplayFailure;
+use Dos\Payum\Request\DisplayFailure;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\ApiAwareInterface;
 use Payum\Core\GatewayAwareInterface;

@@ -11,9 +11,9 @@
 
 declare(strict_types=1);
 
-namespace Dos\Payum\ToroPay\Action;
+namespace Dos\Payum\Action;
 
-use Dos\Payum\ToroPay\Request\DisplayFailure;
+use Dos\Payum\Request\DisplayFailure;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\ApiAwareInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
@@ -39,7 +39,7 @@ class CaptureAction implements ActionInterface, GatewayAwareInterface, ApiAwareI
     public function execute($request)
     {
         RequestNotSupportedException::assertSupports($this, $request);
-dump($request);
+
         //$this->gateway->execute($httpRequest = new GetHttpRequest());
 
         $model = ArrayObject::ensureArrayObject($request->getModel());

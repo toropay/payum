@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Dos\Payum\ToroPay\Action;
+namespace Dos\Payum\Action;
 
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
