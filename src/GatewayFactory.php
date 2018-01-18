@@ -16,6 +16,10 @@ namespace Toro\Payum;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\GatewayFactory as PayumGatewayFactory;
 use Toro\Pay\ToroPay;
+use Toro\Payum\Action\AuthorizeAction;
+use Toro\Payum\Action\CaptureAction;
+use Toro\Payum\Action\ConvertPaymentAction;
+use Toro\Payum\Action\StatusAction;
 
 class GatewayFactory extends PayumGatewayFactory
 {
