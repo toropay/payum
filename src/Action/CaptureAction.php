@@ -11,9 +11,8 @@
 
 declare(strict_types=1);
 
-namespace Dos\Payum\Action;
+namespace Toro\Payum\Action;
 
-use Dos\Payum\Request\DisplayFailure;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\ApiAwareInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
@@ -25,6 +24,7 @@ use Payum\Core\Exception\RequestNotSupportedException;
 use Payum\Core\Request\GetHttpRequest;
 use Toro\Pay\Domain\Charge;
 use Toro\Pay\Exception\InvalidResponseException;
+use Toro\Payum\Request\DisplayFailure;
 
 class CaptureAction implements ActionInterface, GatewayAwareInterface, ApiAwareInterface
 {

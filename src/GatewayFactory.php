@@ -13,10 +13,6 @@ declare(strict_types=1);
 
 namespace Toro\Payum;
 
-use Dos\Payum\Action\AuthorizeAction;
-use Dos\Payum\Action\ConvertPaymentAction;
-use Dos\Payum\Action\CaptureAction;
-use Dos\Payum\Action\StatusAction;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\GatewayFactory as PayumGatewayFactory;
 use Toro\Pay\ToroPay;
