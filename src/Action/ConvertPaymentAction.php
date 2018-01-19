@@ -38,7 +38,8 @@ class ConvertPaymentAction implements ActionInterface, GatewayAwareInterface
 
         $request->setResult([
             'note' => $payment->getDescription(),
-            'amount' => $payment->getTotalAmount(),
+            // don't * 100 when send to toropay.
+            'amount' => $payment->getTotalAmount() / 100,
         ]);
     }
 
