@@ -18,15 +18,11 @@ use Payum\Core\Request\Generic;
 class DisplayFailure extends Generic
 {
     /**
-     * @var string
+     * @return string
      */
-    private $failureReason;
-
-    public function __construct($model)
+    public function getFailureCode(): string
     {
-        parent::__construct($model);
-
-        $this->failureReason = $model['failureReason'];
+        return (string)$this->model['error']->code;
     }
 
     /**
@@ -34,6 +30,14 @@ class DisplayFailure extends Generic
      */
     public function getFailureReason(): string
     {
-        return $this->failureReason;
+        return $this->model['error']->message;
+    }
+
+    /**
+     * @return array
+     */
+    public function getErrors(): array
+    {
+        return $this->model['error']->errors;
     }
 }

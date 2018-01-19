@@ -55,9 +55,10 @@ class CaptureAction implements ActionInterface, GatewayAwareInterface, ApiAwareI
         //$charge->currency = $model['currency'];
 
         try {
+            $model['error'] = null;
             $this->api->charge->createNew($charge);
         } catch (InvalidResponseException $e) {
-            $model['failureReason'] = $e->error->message;
+            $model['error'] = $e->error;
 
             $this->gateway->execute(new DisplayFailure($model));
 
@@ -79,7 +80,6 @@ class CaptureAction implements ActionInterface, GatewayAwareInterface, ApiAwareI
     {
         return
             $request instanceof Capture &&
-            $request->getModel() instanceof \ArrayAccess
-        ;
+            $request->getModel() instanceof \ArrayAccess;
     }
 }
