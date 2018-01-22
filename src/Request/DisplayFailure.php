@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Toro\Payum\Request;
 
 use Payum\Core\Request\Generic;
+use Toro\Pay\Domain\Error;
 
 class DisplayFailure extends Generic
 {
@@ -22,7 +23,7 @@ class DisplayFailure extends Generic
      */
     public function getFailureCode(): string
     {
-        return (string)$this->model['error']->code;
+        return (string)$this->getError()->code;
     }
 
     /**
@@ -30,7 +31,7 @@ class DisplayFailure extends Generic
      */
     public function getFailureReason(): string
     {
-        return $this->model['error']->message;
+        return $this->getError()->message;
     }
 
     /**
@@ -38,6 +39,14 @@ class DisplayFailure extends Generic
      */
     public function getErrors(): array
     {
-        return $this->model['error']->errors;
+        return $this->getError()->errors;
+    }
+
+    /**
+     * @return Error
+     */
+    public function getError(): Error
+    {
+        return $this->model['error'];
     }
 }
