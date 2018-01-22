@@ -42,12 +42,16 @@ class StatusAction implements ActionInterface, ApiAwareInterface, GatewayAwareIn
 
         // verify last status
         if ($model['chargeId'] && Charge::STATE_PROCESSING === $status) {
-            $charge = $this->api->charge->find($model['chargeId']);
-            $status = $model['state'] = $charge->state;
+            // TODO: case of can't connect to server, we should have
+            // - notify hook
+            // - manually check button in admin console or user account console. (?)
+            if ($charge = $this->api->charge->find($model['chargeId'])) {
+                $status = $model['state'] = $charge->state;
 
-            if (Charge::STATE_FAILED === $status) {
-                $model['failureReason'] = $charge->failureReason;
-                $this->gateway->execute(new DisplayFailure($model));
+                if (Charge::STATE_FAILED === $status) {
+                    $model['failureReason'] = $charge->failureReason;
+                    $this->gateway->execute(new DisplayFailure($model));
+                }
             }
         }
 
