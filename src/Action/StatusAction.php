@@ -38,7 +38,7 @@ class StatusAction implements ActionInterface, ApiAwareInterface, GatewayAwareIn
         RequestNotSupportedException::assertSupports($this, $request);
 
         $model = ArrayObject::ensureArrayObject($request->getModel());
-        $status = $model['state'];
+        $status = $model['chargeState'];
 
         // verify last status
         if ($model['chargeId'] && Charge::STATE_PROCESSING === $status) {
@@ -46,7 +46,7 @@ class StatusAction implements ActionInterface, ApiAwareInterface, GatewayAwareIn
             // - notify hook
             // - manually check button in admin console or user account console. (?)
             if ($charge = $this->api->charge->find($model['chargeId'])) {
-                $status = $model['state'] = $charge->state;
+                $status = $model['chargeState'] = $charge->state;
 
                 if (Charge::STATE_FAILED === $status) {
                     $model['failureReason'] = $charge->failureReason;
